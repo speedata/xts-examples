@@ -1,0 +1,26 @@
+<root>
+  <record first_name="James" last_name="Butt" company_name="Benton, John B Jr"
+    address="6649 N Blue Gum St" city="New Orleans" county="Orleans" state="LA" zip="70116"
+    phone1="504-621-8927" phone2="504-845-1427" email="jbutt@gmail.com"
+    web="http://www.bentonjohnbjr.com"/>
+  <record first_name="Josephine" last_name="Darakjy" company_name="Chanay, Jeffrey A Esq"
+    address="4 B Blue Ridge Blvd" city="Brighton" county="Livingston" state="MI" zip="48116"
+    phone1="810-292-9388" phone2="810-374-9840" email="josephine_darakjy@darakjy.org"
+    web="http://www.chanayjeffreyaesq.com"/>
+  <record first_name="Art" last_name="Venere" company_name="Chemel, James L Cpa"
+    address="8 W Cerritos Ave #54" city="Bridgeport" county="Gloucester" state="NJ" zip="08014"
+    phone1="856-636-8749" phone2="856-264-4130" email="art@venere.org"
+    web="http://www.chemeljameslcpa.com"/>
+  <record first_name="Lenna" last_name="Paprocki" company_name="Feltz Printing Service"
+    address="639 Main St" city="Anchorage" county="Anchorage" state="AK" zip="99501"
+    phone1="907-385-4412" phone2="907-921-2010" email="lpaprocki@hotmail.com"
+    web="http://www.feltzprintingservice.com"/>
+  <record first_name="Donette" last_name="Foller" company_name="Printing Dimensions"
+    address="34 Center St" city="Hamilton" county="Butler" state="OH" zip="45011"
+    phone1="513-570-1893" phone2="513-549-4561" email="donette.foller@cox.net"
+    web="http://www.printingdimensions.com"/>
+  <record first_name="Simona" last_name="Morasca" company_name="Chapman, Ross E Esq"
+    address="3 Mcauley Dr" city="Ashland" county="Ashland" state="OH" zip="44805"
+    phone1="419-503-2484" phone2="419-800-6759" email="simona@morasca.com"
+    web="http://www.chapmanrosseesq.com"/>
+</root>

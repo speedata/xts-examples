@@ -1,0 +1,74 @@
+<Layout xmlns="urn:speedata.de/2021/xts/en"
+    xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+    <SetGrid height="12pt" nx="30"/>
+    <Pageformat width="8.5in" height="11in"/>
+    <Trace grid="no" gridallocation="no"></Trace>
+
+    <DefineTextformat name="text" alignment="leftaligned"/>
+    <DefineTextformat name="company" alignment="rightaligned"/>
+
+    <DefineFontfamily name="company">
+        <Regular fontface="TeXGyreHeros-Regular"/>
+    </DefineFontfamily>
+    <DefineFontsize fontsize="8pt" leading="10pt" name="company"/>
+
+    <Record element="root">
+        <ProcessNode select="record"/>
+    </Record>
+
+    <DefineMasterpage name="page" test="true()" margin="10mm 10mm 10mm 10mm">
+        <PositioningArea name="recipient">
+            <PositioningFrame width="20" height="5" row="10" column="3"/>
+        </PositioningArea>
+        <PositioningArea name="company">
+            <PositioningFrame width="7" height="20" row="1" column="24"/>
+        </PositioningArea>
+        <AtPageCreation>
+            <PlaceObject row="1" column="3" area="company">
+                <Image href="logo.pdf" width="5"/>
+            </PlaceObject>
+            <NextRow area="company" rows="1" />
+            <PlaceObject area="company">
+                <Textblock fontfamily="company" >
+                    <Paragraph textformat="company">
+                        <Value>Print Company &amp; Office<br/>61556 W 20th Ave<br/>Seattle King WA 98104<br/><br/>206-711-6498<br/>206-395-6284<br/><br/>jbiddy@printcompany.com<br/></Value><A href="http://www.printcompany.com"><Value>www.printcompany.com</Value></A>
+                    </Paragraph>
+                </Textblock>
+            </PlaceObject>
+        </AtPageCreation>
+    </DefineMasterpage>
+
+    <Record element="record">
+        <PlaceObject area="recipient" >
+            <Textblock>
+                <Paragraph>
+                    <Value select="@first_name"/><Value> </Value><Value select="@last_name"/><Br/>
+                    <Value select="@address"></Value><Br/>
+                    <Value select="@city"/><Value>, </Value><Value select="@state"/><Value> </Value><Value select="@zip"/>
+                </Paragraph>
+            </Textblock>
+        </PlaceObject>
+            <PlaceObject row="20" column="1">
+            <Textblock>
+                <Paragraph>
+                    <Value>November 6, 2014</Value>
+                </Paragraph>
+            </Textblock>
+        </PlaceObject>
+        <NextRow rows="2"/>
+        <PlaceObject>
+            <Textblock width="15">
+                <Paragraph>
+                    <Value>Dear </Value><Value select="concat(@first_name,' ',@last_name,',')"/>
+                </Paragraph>
+                <Paragraph />
+                <Paragraph>
+                    <Value>but I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</Value>
+                </Paragraph>
+                <Paragraph />
+                <Paragraph><Value>Yours faithfully,<br /><br /><br />Jani Biddy</Value></Paragraph>
+            </Textblock>
+        </PlaceObject>
+        <ClearPage/>
+    </Record>
+</Layout>
