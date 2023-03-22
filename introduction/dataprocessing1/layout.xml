@@ -1,0 +1,16 @@
+<Layout xmlns="urn:speedata.de/2021/xts/en"
+    xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+    <SetGrid nx="20" height="12pt" />
+
+    <!-- This example uses "ProcessNode" to visit each child node -->
+    <Record element="root">
+        <ProcessNode select="child" />
+    </Record>
+
+    <Record element="child">
+        <PlaceObject column="1">
+            <Barcode select="." type="Code128" width="4" height="4" fontsize="16pt/16pt" />
+        </PlaceObject>
+        <NextRow rows="2" />
+    </Record>
+</Layout>

@@ -1,0 +1,16 @@
+<Layout xmlns="urn:speedata.de/2021/xts/en"
+  xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+  <SetGrid nx="20" height="12pt" />
+
+  <!-- This example uses "ForAll" to visit each child node -->
+  <Record element="root">
+    <ForAll select="child">
+      <PlaceObject>
+        <Barcode select="." type="Code128" width="4" height="4" fontsize="16pt/16pt" />
+      </PlaceObject>
+      <NextRow rows="2" />
+    </ForAll>
+  </Record>
+
+
+</Layout>
