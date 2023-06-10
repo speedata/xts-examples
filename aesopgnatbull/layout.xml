@@ -1,0 +1,60 @@
+<Layout xmlns="urn:speedata.de/2021/xts/en"
+    xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+
+    <LoadFontfile name="PlayfairDisplay-Regular" filename="PlayfairDisplay-Regular.ttf" />
+    <LoadFontfile name="FaunaOne" filename="FaunaOne-Regular.ttf" />
+
+    <Stylesheet>
+        p {
+            color: white ;
+            font-size: 9pt;
+            line-height: 17pt;
+        }
+
+        .heading {
+            font-size: 40pt;
+            line-height: 48pt;
+            font-family: heading;
+        }
+    </Stylesheet>
+
+    <DefineFontfamily name="heading">
+      <Regular fontface="PlayfairDisplay-Regular"/>
+    </DefineFontfamily>
+    <DefineFontfamily name="text" >
+      <Regular fontface="FaunaOne"/>
+    </DefineFontfamily>
+
+
+    <Pageformat width="210mm" height="140mm"/>
+
+    <DefineMasterpage name="first" test="sd:current-page() = 1" margin="1cm">
+      <AtPageCreation>
+        <PlaceObject column="-2mm" row="-2mm">
+          <Image width="214mm" href="forest.jpg"/>
+        </PlaceObject>
+      </AtPageCreation>
+    </DefineMasterpage>
+
+    <Record element="data">
+        <PlaceObject row="2" column="3">
+            <Textblock width="8">
+                <Paragraph class="heading">
+                    <Value select="upper-case(story/@title)"/>
+                </Paragraph>
+            </Textblock>
+        </PlaceObject>
+
+        <PlaceObject column="3">
+            <Textblock width="10">
+              <ForAll select="story/p">
+                <Paragraph>
+                  <Value select="."/>
+                </Paragraph>
+                <Paragraph/>
+              </ForAll>
+            </Textblock>
+          </PlaceObject>
+
+      </Record>
+</Layout>
