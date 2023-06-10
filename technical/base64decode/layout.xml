@@ -1,0 +1,8 @@
+<Layout xmlns="urn:speedata.de/2021/xts/en"
+    xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+    <Record element="data">
+        <PlaceObject>
+            <Image href="{sd:file-contents(sd:decode-base64(.))}"></Image>
+        </PlaceObject>
+    </Record>
+</Layout>

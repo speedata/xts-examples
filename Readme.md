@@ -1,6 +1,6 @@
 This repository contains examples for the [XTS XML typesetting system](https://github.com/speedata/xts), an OpenSource database publishing system (create a PDF from XML data).
 
-Introductory examples are in the directory [introduction](introduction).
+Introductory examples are in the directory [introduction](introduction). More technical examples in the directory [technical](technical).
 
 
 | Description                         | Preview                                                                         |

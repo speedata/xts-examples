@@ -1,0 +1,20 @@
+<Layout xmlns="urn:speedata.de/2021/xts/en"
+    xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+    <Record element="data">
+        <PlaceObject column="1">
+            <Image href="ocean.pdf" height="3" />
+        </PlaceObject>
+        <PlaceObject column="1">
+            <Image href="yellowblue.jpg" height="3" />
+        </PlaceObject>
+        <PlaceObject column="1">
+            <Image href="img.png" height="3" />
+        </PlaceObject>
+        <PlaceObject column="1">
+            <Image href="gradient.png" height="3" />
+        </PlaceObject>
+        <PlaceObject column="1">
+            <Image href="oceancrop.pdf" height="3" />
+        </PlaceObject>
+    </Record>
+</Layout>
