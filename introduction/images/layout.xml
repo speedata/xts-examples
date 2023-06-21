@@ -16,5 +16,8 @@
         <PlaceObject column="1">
             <Image href="oceancrop.pdf" height="3" />
         </PlaceObject>
+        <PlaceObject column="1">
+            <Image href="268385.png" height="3" />
+        </PlaceObject>
     </Record>
 </Layout>
