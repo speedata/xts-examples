@@ -1,22 +1,16 @@
 <Layout xmlns="urn:speedata.de/2021/xts/en"
     xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
     <Stylesheet>
+      body {
+        font-family: serif;
+      }
         p {
             font-size: 8pt;
             line-height: 10pt;
         }
     </Stylesheet>
 
-    <LoadFontfile name="CrimsonPro-Bold" filename="CrimsonPro-Bold.ttf" />
-    <LoadFontfile name="CrimsonPro-Regular" filename="CrimsonPro-Regular.ttf"/>
 
-    <DefineFontalias existing="CrimsonPro-Regular" alias="regular"/>
-    <DefineFontalias existing="CrimsonPro-Bold" alias="bold"/>
-
-    <DefineFontfamily name="text">
-      <Regular fontface="regular" />
-      <Bold fontface="bold" />
-    </DefineFontfamily>
 
     <Pageformat width="150mm" height="200mm"/>
     <SetGrid width="4mm" height="14pt"/>

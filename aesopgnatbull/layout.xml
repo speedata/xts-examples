@@ -1,29 +1,24 @@
 <Layout xmlns="urn:speedata.de/2021/xts/en"
     xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
 
-    <LoadFontfile name="PlayfairDisplay-Regular" filename="PlayfairDisplay-Regular.ttf" />
-    <LoadFontfile name="FaunaOne" filename="FaunaOne-Regular.ttf" />
 
     <Stylesheet>
-        p {
+      @font-face { font-family: "Fauna One"; src: url("FaunaOne-Regular.ttf");}
+      @font-face { font-family: "Playfair Display"; src: url("PlayfairDisplay-Regular.ttf");}
+      p {
             color: white ;
             font-size: 9pt;
             line-height: 17pt;
+            font-family: "Fauna One";
         }
 
         .heading {
             font-size: 40pt;
             line-height: 48pt;
-            font-family: heading;
+            font-family: "Playfair Display";
         }
-    </Stylesheet>
 
-    <DefineFontfamily name="heading">
-      <Regular fontface="PlayfairDisplay-Regular"/>
-    </DefineFontfamily>
-    <DefineFontfamily name="text" >
-      <Regular fontface="FaunaOne"/>
-    </DefineFontfamily>
+    </Stylesheet>
 
 
     <Pageformat width="210mm" height="140mm"/>

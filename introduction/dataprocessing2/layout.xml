@@ -6,7 +6,7 @@
   <Record element="root">
     <ForAll select="child">
       <PlaceObject>
-        <Barcode select="." type="Code128" width="4" height="4" fontsize="16pt/16pt" />
+        <Barcode select="." type="Code128" width="4" height="4" fontsize="16pt/16pt" fontfamily="sans" />
       </PlaceObject>
       <NextRow rows="2" />
     </ForAll>

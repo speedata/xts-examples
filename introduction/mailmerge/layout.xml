@@ -4,13 +4,7 @@
     <Pageformat width="8.5in" height="11in"/>
     <Trace grid="no" gridallocation="no"></Trace>
 
-    <DefineTextformat name="text" alignment="leftaligned"/>
-    <DefineTextformat name="company" alignment="rightaligned"/>
-
-    <DefineFontfamily name="company">
-        <Regular fontface="TeXGyreHeros-Regular"/>
-    </DefineFontfamily>
-    <DefineFontsize fontsize="8pt" leading="10pt" name="company"/>
+    <Stylesheet href="style.css" />
 
     <Record element="root">
         <ProcessNode select="record"/>
@@ -29,8 +23,8 @@
             </PlaceObject>
             <NextRow area="company" rows="1" />
             <PlaceObject area="company">
-                <Textblock fontfamily="company" >
-                    <Paragraph textformat="company">
+                <Textblock>
+                    <Paragraph class="company">
                         <Value>Print Company &amp; Office<br/>61556 W 20th Ave<br/>Seattle King WA 98104<br/><br/>206-711-6498<br/>206-395-6284<br/><br/>jbiddy@printcompany.com<br/></Value><A href="http://www.printcompany.com"><Value>www.printcompany.com</Value></A>
                     </Paragraph>
                 </Textblock>

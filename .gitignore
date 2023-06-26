@@ -2,6 +2,6 @@ publisher.pdf
 publisher-aux.xml
 publisher.protocol
 xts.pdf
-xts-aux.xml
 xts.protocol
 .vscode
+xts-*.xml
