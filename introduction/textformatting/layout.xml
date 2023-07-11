@@ -5,7 +5,7 @@
     <Stylesheet>
     @font-face {
         font-family: code;
-        src: url("CamingoCode-Regular.ttf");
+        src: local("CamingoCode-Regular");
         size-adjust: 80%;
     }
     .title {

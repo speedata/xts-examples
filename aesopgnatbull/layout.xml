@@ -3,8 +3,8 @@
 
 
     <Stylesheet>
-      @font-face { font-family: "Fauna One"; src: url("FaunaOne-Regular.ttf");}
-      @font-face { font-family: "Playfair Display"; src: url("PlayfairDisplay-Regular.ttf");}
+      @font-face { font-family: "Fauna One"; src: url("fonts/FaunaOne-Regular.ttf");}
+      @font-face { font-family: "Playfair Display"; src: url("fonts/PlayfairDisplay-Regular.ttf");}
       p {
             color: white ;
             font-size: 9pt;
