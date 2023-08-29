@@ -4,10 +4,14 @@
       body {
         font-family: serif;
       }
-        p {
-            font-size: 8pt;
-            line-height: 10pt;
-        }
+      p {
+        font-size: 8pt;
+        line-height: 10pt;
+      }
+      .title {
+        font-size: 12pt;
+        line-height: 16pt;
+      }
     </Stylesheet>
 
 
@@ -42,8 +46,8 @@
             </Textblock>
         </PlaceObject>
         <PlaceObject column="3">
-          <Textblock fontfamily="Title">
-            <Paragraph>
+          <Textblock>
+            <Paragraph class="title">
               <Value>Contents</Value>
             </Paragraph>
           </Textblock>
@@ -130,8 +134,8 @@
 
     <Record element="url">
       <PlaceObject column="{ $column }">
-        <Textblock width="29" fontfamily="Title">
-          <Paragraph>
+        <Textblock width="29">
+          <Paragraph class="title">
             <Value>URL: </Value>
             <A href="{ string(.) }"><Value select="string(.)" /></A>
           </Paragraph>
@@ -143,7 +147,7 @@
     <Record element="image">
       <NextRow rows="2" />
       <PlaceObject column="{ $column }">
-        <Image width="10" href="{.}" />
+        <Image width="10" href="images-rgb/{.}" />
       </PlaceObject>
     </Record>
 

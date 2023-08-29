@@ -26,7 +26,7 @@
     <DefineMasterpage name="first" test="sd:current-page() = 1" margin="1cm">
       <AtPageCreation>
         <PlaceObject column="-2mm" row="-2mm">
-          <Image width="214mm" href="forest.jpg"/>
+          <Image width="214mm" href="img/forest.jpg"/>
         </PlaceObject>
       </AtPageCreation>
     </DefineMasterpage>
