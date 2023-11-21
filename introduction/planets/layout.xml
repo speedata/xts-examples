@@ -14,8 +14,6 @@
       }
     </Stylesheet>
 
-
-
     <Pageformat width="150mm" height="200mm"/>
     <SetGrid width="4mm" height="14pt"/>
 
@@ -23,7 +21,7 @@
       <AtPageShipout>
         <PlaceObject column="1" row="{ sd:number-of-rows() - 1}">
           <Textblock>
-            <Paragraph style="align:right;"><Value select="concat('Page ',sd:current-page(), ' of ',sd:last-page-number())"/></Paragraph>
+            <Paragraph style="text-align:right;"><Value select="concat('Page ',sd:current-page(), ' of ',sd:last-page-number())"/></Paragraph>
           </Textblock>
         </PlaceObject>
       </AtPageShipout>
