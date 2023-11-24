@@ -1,0 +1,38 @@
+<Layout xmlns="urn:speedata.de/2021/xts/en"
+    xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+
+    <Stylesheet>
+        table {
+            width: 100% ;
+        }
+        td.right {
+            text-align: right;
+        }
+    </Stylesheet>
+
+    <Record element="data">
+        <PlaceObject>
+            <Table width="5">
+                <Tr>
+                    <Td>
+                        <Paragraph><Value>Article number</Value></Paragraph>
+                    </Td>
+                    <Td class="right">
+                        <Paragraph><Value>Price (Euro)</Value></Paragraph>
+                    </Td>
+                </Tr>
+                <ForAll select="entry">
+                    <Tr>
+                        <Td>
+                            <Paragraph><Value select="@artno" /></Paragraph>
+                        </Td>
+                        <Td class="right">
+                            <Paragraph><Value select="@price" /></Paragraph>
+                        </Td>
+                    </Tr>
+                </ForAll>
+            </Table>
+        </PlaceObject>
+
+    </Record>
+</Layout>

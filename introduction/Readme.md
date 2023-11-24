@@ -9,3 +9,4 @@ This directory contains introductory examples.
 | [Image inclusion](images)                           | <a href="images"><img src="images/firstpage.png" width="200"></a>                   |
 | [Text formatting](textformatting)                   | <a href="textformatting"><img src="textformatting/firstpage.png" width="200"></a>   |
 | [Table of contents](planets)                        | <a href="planets"><img src="planets/firstpage.png" width="200"></a>                 |
+| [Simple table](simpletable)                        | <a href="simpletable"><img src="simpletable/firstpage.png" width="200"></a>                 |
