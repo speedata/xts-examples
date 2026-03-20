@@ -54,7 +54,7 @@
         <PlaceObject column="3">
           <Textblock width="20">
             <ForAll select="planetlisting">
-              <Paragraph>
+              <Paragraph style="margin: 0pt;">
                 <A link="{@name}">
                   <Value select="@name" />
                   <Value>, page </Value>
@@ -98,7 +98,7 @@
     <Record element="planet">
       <!-- Save the name and the page number for later use -->
       <SetVariable variable="contents">
-        <Value select="$contents" />
+        <CopyOf select="$contents" />
         <Element name="planetlisting">
           <Attribute name="name" select=" @name " />
           <Attribute name="pagenumber" select=" sd:current-page()" />
