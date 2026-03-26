@@ -71,13 +71,13 @@
       <SetVariable variable="column" select="2" />
 
       <!-- this calls 'tableofcontents' if the file is found on the harddrive (second run)  -->
-      <LoadDataset name="toc"/>
+      <LoadXML name="toc"/>
 
       <SetVariable variable="contents"/>
       <ClearPage/>
       <ProcessNode select="planet" />
 
-      <SaveDataset name="toc" elementname="tableofcontents" select="$contents" />
+      <SaveXML name="toc" elementname="tableofcontents" select="$contents" />
       <!--
         this is the structure written:
 

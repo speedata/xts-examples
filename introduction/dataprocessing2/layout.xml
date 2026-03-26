@@ -6,7 +6,15 @@
   <Record element="root">
     <ForAll select="child">
       <PlaceObject>
-        <Barcode select="." type="Code128" width="4" height="4" fontsize="16pt/16pt" fontfamily="sans" showtext="yes" />
+        <HTML expand-text="yes">
+          <div style="width: 5cm">
+            <barcode type="code128" value="{.}" width="{sd:grid-width(5,'cm')}cm" height="1.5cm" />
+            <br />
+            <p style="text-align: center; font-size: 10pt; margin-top: 2pt">
+              {.}
+            </p>
+          </div>
+        </HTML>
       </PlaceObject>
       <NextRow rows="2" />
     </ForAll>
