@@ -1,6 +1,7 @@
 <Layout xmlns="urn:speedata.de/2021/xts/en"
     xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
-    <Record element="data">
+    <Options imagenotfound="error" />
+    <Record match="data">
         <PlaceObject column="1">
             <Image href="ocean.pdf" height="3" />
         </PlaceObject>
@@ -18,6 +19,12 @@
         </PlaceObject>
         <PlaceObject column="1">
             <Image href="268385.png" height="3" />
+        </PlaceObject>
+        <PlaceObject column="1">
+            <Image href="placeholder://600x400" height="3" />
+        </PlaceObject>
+        <PlaceObject column="1">
+            <Image href="doesnotexist.pdf" height="3" width="2" />
         </PlaceObject>
     </Record>
 </Layout>

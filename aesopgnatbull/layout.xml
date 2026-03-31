@@ -27,7 +27,7 @@
     </AtPageCreation>
   </DefineMasterpage>
 
-  <Record element="data">
+  <Record match="data">
     <PlaceObject row="2" column="3">
       <Textblock width="8">
         <Paragraph class="heading">

@@ -37,7 +37,7 @@
       </AtPageShipout>
     </DefineMasterpage>
 
-    <Record element="tableofcontents">
+    <Record match="tableofcontents">
         <PlaceObject column="0mm" row="0mm">
             <Textblock>
                 <Bookmark level="1" select="'Contents'" open="yes"/>
@@ -67,7 +67,7 @@
       </Record>
 
 
-    <Record element="planets">
+    <Record match="planets">
       <SetVariable variable="column" select="2" />
 
       <!-- this calls 'tableofcontents' if the file is found on the harddrive (second run)  -->
@@ -95,7 +95,7 @@
       -->
     </Record>
 
-    <Record element="planet">
+    <Record match="planet">
       <!-- Save the name and the page number for later use -->
       <SetVariable variable="contents">
         <CopyOf select="$contents" />
@@ -130,7 +130,7 @@
       <ClearPage />
     </Record>
 
-    <Record element="url">
+    <Record match="url">
       <PlaceObject column="{ $column }">
         <Textblock width="29">
           <Paragraph class="title">
@@ -142,14 +142,14 @@
 
     </Record>
 
-    <Record element="image">
+    <Record match="image">
       <NextRow rows="2" />
       <PlaceObject column="{ $column }">
         <Image width="10" href="images-rgb/{.}" />
       </PlaceObject>
     </Record>
 
-    <Record element="moons">
+    <Record match="moons">
       <PlaceObject column="18">
         <Textblock width="7">
           <Paragraph>
@@ -165,7 +165,7 @@
       <NextRow rows="2" />
     </Record>
 
-    <Record element="description">
+    <Record match="description">
       <PlaceObject column="{ $column }">
         <Textblock>
           <Paragraph>

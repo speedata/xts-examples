@@ -10,7 +10,7 @@
         }
     </Stylesheet>
 
-    <Record element="data">
+    <Record match="data">
         <PlaceObject>
             <Table width="5">
                 <Tr>

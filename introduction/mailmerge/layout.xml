@@ -6,7 +6,7 @@
 
     <Stylesheet href="style.css" />
 
-    <Record element="root">
+    <Record match="root">
         <ProcessNode select="record"/>
     </Record>
 
@@ -32,7 +32,7 @@
         </AtPageCreation>
     </DefineMasterpage>
 
-    <Record element="record">
+    <Record match="record">
         <PlaceObject area="recipient" >
             <Textblock>
                 <Paragraph>

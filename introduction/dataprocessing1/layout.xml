@@ -3,11 +3,11 @@
 
 
     <!-- This example uses "ProcessNode" to visit each child node -->
-    <Record element="root">
+    <Record match="root">
         <ProcessNode select="child" />
     </Record>
 
-    <Record element="child">
+    <Record match="child">
         <PlaceObject column="1">
             <HTML expand-text="yes">
                 <div style="width: 5cm">

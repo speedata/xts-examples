@@ -1,0 +1,52 @@
+<invoice>
+    <number>471102</number>
+    <date>15.11.2024</date>
+    <note>Rechnung gemäß Bestellung vom 01.11.2024.</note>
+    <seller>
+        <name>Lieferant GmbH</name>
+        <street>Lieferantenstraße 20</street>
+        <zip>80333</zip>
+        <city>München</city>
+        <country>DE</country>
+        <taxid>201/113/40209</taxid>
+        <vatid>DE123456789</vatid>
+        <ceo>Hans Muster</ceo>
+        <register>H A 123</register>
+    </seller>
+    <buyer>
+        <name>Kunden AG Mitte</name>
+        <street>Kundenstraße 15</street>
+        <zip>69876</zip>
+        <city>Frankfurt</city>
+        <country>DE</country>
+        <id>GE2020211</id>
+    </buyer>
+    <items>
+        <item>
+            <pos>1</pos>
+            <name>Trennblätter A4</name>
+            <artno>TB100A4</artno>
+            <quantity>20</quantity>
+            <unit>Stück</unit>
+            <price>9.90</price>
+            <total>198.00</total>
+            <vat>19</vat>
+        </item>
+        <item>
+            <pos>2</pos>
+            <name>Joghurt Banane</name>
+            <artno>ARNR2</artno>
+            <quantity>50</quantity>
+            <unit>Stück</unit>
+            <price>5.50</price>
+            <total>275.00</total>
+            <vat>7</vat>
+        </item>
+    </items>
+    <totals>
+        <net>473.00</net>
+        <vat>56.87</vat>
+        <gross>529.87</gross>
+    </totals>
+    <payment>Zahlbar innerhalb 30 Tagen netto bis 15.12.2024, 3% Skonto innerhalb 10 Tagen bis 25.11.2024</payment>
+</invoice>

@@ -3,7 +3,7 @@
 
 
   <!-- This example uses "ForAll" to visit each child node -->
-  <Record element="root">
+  <Record match="root">
     <ForAll select="child">
       <PlaceObject>
         <HTML expand-text="yes">

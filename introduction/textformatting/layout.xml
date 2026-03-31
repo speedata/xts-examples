@@ -21,7 +21,7 @@
     }
     </Stylesheet>
 
-    <Record element="data">
+    <Record match="data">
         <PlaceObject>
             <Textblock width="8">
                 <Paragraph>
