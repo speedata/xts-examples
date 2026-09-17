@@ -128,62 +128,63 @@
                         <Td>
                             <Paragraph>
                                 <Value select="vat" />
-                                %
+                                <Value>%</Value>
                             </Paragraph>
                         </Td>
                         <Td>
                             <Paragraph>
                                 <Value select="total" />
-                                EUR
+                                <Value> EUR</Value>
                             </Paragraph>
                         </Td>
                     </Tr>
                 </ForAll>
                 <TableRule />
                 <Tr>
-                    <Td colspan="5">
+                    <Td colspan="4" align="right">
                         <Paragraph>
                             <B>
-                                <Value>Netto</Value>
+                                <Value>Netto&#xa0;</Value>
                             </B>
                         </Paragraph>
                     </Td>
+                    <Td></Td>
                     <Td>
                         <Paragraph>
                             <B>
-                                <Value select="../totals/net" />
-                                EUR
+                                <Value select="totals/net || ' EUR' " />
                             </B>
                         </Paragraph>
                     </Td>
                 </Tr>
                 <Tr>
-                    <Td colspan="5">
+                    <Td colspan="4" align="right">
                         <Paragraph>
-                            <Value>MwSt</Value>
+                            <Value>MwSt&#xa0;</Value>
                         </Paragraph>
                     </Td>
+                    <Td></Td>
                     <Td>
                         <Paragraph>
-                            <Value select="../totals/vat" />
-                            EUR
+                            <Value select="totals/vat || ' EUR' " />
                         </Paragraph>
                     </Td>
                 </Tr>
                 <TableRule />
                 <Tr>
-                    <Td colspan="5">
+                    <Td colspan="4" align="right">
                         <Paragraph>
                             <B>
                                 <Value>Gesamtbetrag</Value>
                             </B>
                         </Paragraph>
                     </Td>
+                    <Td></Td>
                     <Td>
                         <Paragraph>
                             <B>
-                                <Value select="../totals/gross" />
-                                EUR
+                                <Value select="totals/gross || ' EUR'" />
+
                             </B>
                         </Paragraph>
                     </Td>

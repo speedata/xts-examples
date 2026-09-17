@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Install ImageMagick and Ghostscript
+        # Only used by rake qa when a PDF differs from result.pdf by hash.
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick ghostscript
@@ -30,7 +31,7 @@ jobs:
           "$PWD/xts-linux-amd64/xts" version
 
       - name: Compare every example with its result.pdf
-        run: xts compare --reference result .
+        run: rake qa
 
       - name: Upload the comparison report on failure
         if: failure()
