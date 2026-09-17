@@ -4,4 +4,10 @@ publisher.protocol
 xts.pdf
 xts.protocol
 .vscode
+.DS_Store
 xts-*.xml
+# files of xts compare and of a run with --jobname result
+compare-report.html
+source-[0-9][0-9].png
+pagediff-[0-9][0-9].png
+result-*

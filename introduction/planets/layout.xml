@@ -1,6 +1,6 @@
 <Layout xmlns="urn:speedata.de/2021/xts/en"
     xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
-    <Stylesheet>
+    <StyleSheet>
       body {
         font-family: serif;
       }
@@ -12,47 +12,48 @@
         font-size: 12pt;
         line-height: 16pt;
       }
-    </Stylesheet>
+    </StyleSheet>
 
-    <Pageformat width="150mm" height="200mm"/>
+    <PageFormat width="150mm" height="200mm"/>
     <SetGrid width="4mm" height="14pt"/>
 
-    <DefineMasterpage name="right page" test="sd:odd( sd:current-page() )" margin="1cm 1cm 1cm 2cm">
+    <DefineMasterPage name="right page" test="sd:odd( sd:current-page() )" margin="1cm 1cm 1cm 2cm">
       <AtPageShipout>
         <PlaceObject column="1" row="{ sd:number-of-rows() - 1}">
-          <Textblock>
+          <TextBlock>
             <Paragraph style="text-align:right;"><Value select="concat('Page ',sd:current-page(), ' of ',sd:last-page-number())"/></Paragraph>
-          </Textblock>
+          </TextBlock>
         </PlaceObject>
       </AtPageShipout>
-    </DefineMasterpage>
+    </DefineMasterPage>
 
-    <DefineMasterpage name="left page" test="sd:even( sd:current-page() )" margin="1cm 2cm 1cm 1cm">
+    <DefineMasterPage name="left page" test="sd:even( sd:current-page() )" margin="1cm 2cm 1cm 1cm">
       <AtPageShipout>
         <PlaceObject column="1" row="{ sd:number-of-rows() - 1}">
-          <Textblock>
+          <TextBlock>
             <Paragraph style="text-align: left;"><Value select="concat('Page ',sd:current-page(), ' of ',sd:last-page-number())"/></Paragraph>
-          </Textblock>
+          </TextBlock>
         </PlaceObject>
       </AtPageShipout>
-    </DefineMasterpage>
+    </DefineMasterPage>
 
     <Record match="tableofcontents">
+        <SetVariable variable="tocloaded" select="true()"/>
         <PlaceObject column="0mm" row="0mm">
-            <Textblock>
+            <TextBlock>
                 <Bookmark level="1" select="'Contents'" open="yes"/>
-            </Textblock>
+            </TextBlock>
         </PlaceObject>
         <PlaceObject column="3">
-          <Textblock>
+          <TextBlock>
             <Paragraph class="title">
               <Value>Contents</Value>
             </Paragraph>
-          </Textblock>
+          </TextBlock>
         </PlaceObject>
         <NextRow/>
         <PlaceObject column="3">
-          <Textblock width="20">
+          <TextBlock width="20">
             <ForAll select="planetlisting">
               <Paragraph style="margin: 0pt;">
                 <A link="{@name}">
@@ -62,7 +63,7 @@
                 </A>
               </Paragraph>
             </ForAll>
-          </Textblock>
+          </TextBlock>
         </PlaceObject>
       </Record>
 
@@ -71,7 +72,21 @@
       <SetVariable variable="column" select="2" />
 
       <!-- this calls 'tableofcontents' if the file is found on the harddrive (second run)  -->
+      <SetVariable variable="tocloaded" select="false()"/>
       <LoadXML name="toc"/>
+      <Switch>
+        <Case test="not($tocloaded)">
+          <!-- first run: the file does not exist yet. Reserve the page anyway,
+               so the planets get the same page numbers in both runs. -->
+          <PlaceObject column="3">
+            <TextBlock>
+              <Paragraph class="title">
+                <Value>Contents</Value>
+              </Paragraph>
+            </TextBlock>
+          </PlaceObject>
+        </Case>
+      </Switch>
 
       <SetVariable variable="contents"/>
       <ClearPage/>
@@ -106,20 +121,20 @@
       </SetVariable>
 
       <PlaceObject column="0mm" row="0mm">
-        <Textblock>
+        <TextBlock>
             <Bookmark level="1" select="@name" open="yes"/>
-        </Textblock>
+        </TextBlock>
       </PlaceObject>
 
       <PlaceObject column="1">
-        <Textblock>
+        <TextBlock>
           <Action>
             <Mark select="@name" pdftarget="yes" />
           </Action>
           <Paragraph>
             <Value select="@name" />
           </Paragraph>
-        </Textblock>
+        </TextBlock>
       </PlaceObject>
 
 
@@ -132,12 +147,12 @@
 
     <Record match="url">
       <PlaceObject column="{ $column }">
-        <Textblock width="29">
+        <TextBlock width="29">
           <Paragraph class="title">
             <Value>URL: </Value>
             <A href="{ string(.) }"><Value select="string(.)" /></A>
           </Paragraph>
-        </Textblock>
+        </TextBlock>
       </PlaceObject>
 
     </Record>
@@ -151,7 +166,7 @@
 
     <Record match="moons">
       <PlaceObject column="18">
-        <Textblock width="7">
+        <TextBlock width="7">
           <Paragraph>
             <B><Value>Moons</Value></B>
             <Ul>
@@ -160,18 +175,18 @@
               </ForAll>
             </Ul>
             </Paragraph>
-        </Textblock>
+        </TextBlock>
       </PlaceObject>
       <NextRow rows="2" />
     </Record>
 
     <Record match="description">
       <PlaceObject column="{ $column }">
-        <Textblock>
+        <TextBlock>
           <Paragraph>
             <Value select="normalize-space(string(.))" />
           </Paragraph>
-        </Textblock>
+        </TextBlock>
       </PlaceObject>
     </Record>
 

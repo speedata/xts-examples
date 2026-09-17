@@ -1,16 +1,16 @@
 <Layout xmlns="urn:speedata.de/2021/xts/en"
     xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
     <SetGrid height="12pt" nx="30"/>
-    <Pageformat width="8.5in" height="11in"/>
+    <PageFormat width="8.5in" height="11in"/>
     <Trace grid="no" gridallocation="no"></Trace>
 
-    <Stylesheet href="style.css" />
+    <StyleSheet href="style.css" />
 
     <Record match="root">
         <ProcessNode select="record"/>
     </Record>
 
-    <DefineMasterpage name="page" test="true()" margin="10mm 10mm 10mm 10mm">
+    <DefineMasterPage name="page" test="true()" margin="10mm 10mm 10mm 10mm">
         <PositioningArea name="recipient">
             <PositioningFrame width="20" height="5" row="10" column="3"/>
         </PositioningArea>
@@ -23,35 +23,35 @@
             </PlaceObject>
             <NextRow area="company" rows="1" />
             <PlaceObject area="company">
-                <Textblock>
+                <TextBlock>
                     <Paragraph class="company">
                         <Value>Print Company &amp; Office<br/>61556 W 20th Ave<br/>Seattle King WA 98104<br/><br/>206-711-6498<br/>206-395-6284<br/><br/>jbiddy@printcompany.com<br/></Value><A href="http://www.printcompany.com"><Value>www.printcompany.com</Value></A>
                     </Paragraph>
-                </Textblock>
+                </TextBlock>
             </PlaceObject>
         </AtPageCreation>
-    </DefineMasterpage>
+    </DefineMasterPage>
 
     <Record match="record">
         <PlaceObject area="recipient" >
-            <Textblock>
+            <TextBlock>
                 <Paragraph>
                     <Value select="@first_name"/><Value> </Value><Value select="@last_name"/><Br/>
                     <Value select="@address"></Value><Br/>
                     <Value select="@city"/><Value>, </Value><Value select="@state"/><Value> </Value><Value select="@zip"/>
                 </Paragraph>
-            </Textblock>
+            </TextBlock>
         </PlaceObject>
             <PlaceObject row="20" column="1">
-            <Textblock>
+            <TextBlock>
                 <Paragraph>
                     <Value>November 6, 2014</Value>
                 </Paragraph>
-            </Textblock>
+            </TextBlock>
         </PlaceObject>
         <NextRow rows="2"/>
         <PlaceObject>
-            <Textblock width="15">
+            <TextBlock width="15">
                 <Paragraph>
                     <Value>Dear </Value><Value select="concat(@first_name,' ',@last_name,',')"/>
                 </Paragraph>
@@ -61,7 +61,7 @@
                 </Paragraph>
                 <Paragraph />
                 <Paragraph><Value>Yours faithfully,<br /><br /><br />Jani Biddy</Value></Paragraph>
-            </Textblock>
+            </TextBlock>
         </PlaceObject>
         <ClearPage/>
     </Record>

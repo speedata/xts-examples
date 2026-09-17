@@ -1,17 +1,15 @@
-<Layout xmlns="urn:speedata.de/2021/xts/en"
-    xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
-
-    <PDFOptions format="PDF/A-3b" title="Rechnung 471102"
-        author="Lieferant GmbH" displaymode="attachments" />
-    <AttachFile href="zugferd.xml" name="factur-x.xml"
-        description="ZUGFeRD invoice data" type="facturx" />
+<Layout xmlns="urn:speedata.de/2021/xts/en" xmlns:sd="urn:speedata.de/2021/xtsfunctions/en">
+    <PDFOptions title="Rechnung 471102" author="Lieferant GmbH" displaymode="attachments" />
+    <AttachFile href="zugferd.xml" name="factur-x.xml" description="ZUGFeRD invoice data" type="facturx" />
 
     <Record match="invoice">
         <!-- Header -->
         <PlaceObject column="1" row="1">
             <TextBlock width="100mm">
                 <Paragraph>
-                    <B><Value select="seller/name" /></B>
+                    <B>
+                        <Value select="seller/name" />
+                    </B>
                     <Br />
                     <Value select="seller/street" />
                     <Br />
@@ -26,7 +24,9 @@
         <PlaceObject column="1" row="5">
             <TextBlock width="80mm">
                 <Paragraph>
-                    <B><Value select="buyer/name" /></B>
+                    <B>
+                        <Value select="buyer/name" />
+                    </B>
                     <Br />
                     <Value select="buyer/street" />
                     <Br />
@@ -41,9 +41,13 @@
         <PlaceObject column="1" row="9">
             <TextBlock>
                 <Paragraph>
-                    <B><Value>Rechnung Nr. </Value><Value select="number" /></B>
+                    <B>
+                        <Value>Rechnung Nr. </Value>
+                        <Value select="number" />
+                    </B>
                     <Br />
-                    <Value>Datum: </Value><Value select="date" />
+                    <Value>Datum: </Value>
+                    <Value select="date" />
                     <Br />
                     <Value select="note" />
                 </Paragraph>
@@ -55,37 +59,134 @@
             <Table stretch="max">
                 <TableHead>
                     <Tr>
-                        <Td><Paragraph><B><Value>Pos</Value></B></Paragraph></Td>
-                        <Td><Paragraph><B><Value>Artikel</Value></B></Paragraph></Td>
-                        <Td><Paragraph><B><Value>Menge</Value></B></Paragraph></Td>
-                        <Td><Paragraph><B><Value>Einzelpreis</Value></B></Paragraph></Td>
-                        <Td><Paragraph><B><Value>MwSt</Value></B></Paragraph></Td>
-                        <Td><Paragraph><B><Value>Gesamt</Value></B></Paragraph></Td>
+                        <Td>
+                            <Paragraph>
+                                <B>
+                                    <Value>Pos</Value>
+                                </B>
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <B>
+                                    <Value>Artikel</Value>
+                                </B>
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <B>
+                                    <Value>Menge</Value>
+                                </B>
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <B>
+                                    <Value>Einzelpreis</Value>
+                                </B>
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <B>
+                                    <Value>MwSt</Value>
+                                </B>
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <B>
+                                    <Value>Gesamt</Value>
+                                </B>
+                            </Paragraph>
+                        </Td>
                     </Tr>
                 </TableHead>
                 <ForAll select="items/item">
                     <Tr>
-                        <Td><Paragraph><Value select="pos" /></Paragraph></Td>
-                        <Td><Paragraph><Value select="name" /></Paragraph></Td>
-                        <Td><Paragraph><Value select="concat(quantity,' ', unit)" /></Paragraph></Td>
-                        <Td><Paragraph><Value select="concat(price, ' EUR')" /> </Paragraph></Td>
-                        <Td><Paragraph><Value select="vat" />%</Paragraph></Td>
-                        <Td><Paragraph><Value select="total" /> EUR</Paragraph></Td>
+                        <Td>
+                            <Paragraph>
+                                <Value select="pos" />
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <Value select="name" />
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <Value select="concat(quantity,' ', unit)" />
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <Value select="concat(price, ' EUR')" />
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <Value select="vat" />
+                                %
+                            </Paragraph>
+                        </Td>
+                        <Td>
+                            <Paragraph>
+                                <Value select="total" />
+                                EUR
+                            </Paragraph>
+                        </Td>
                     </Tr>
                 </ForAll>
                 <TableRule />
                 <Tr>
-                    <Td colspan="5"><Paragraph><B><Value>Netto</Value></B></Paragraph></Td>
-                    <Td><Paragraph><B><Value select="../totals/net" /> EUR</B></Paragraph></Td>
+                    <Td colspan="5">
+                        <Paragraph>
+                            <B>
+                                <Value>Netto</Value>
+                            </B>
+                        </Paragraph>
+                    </Td>
+                    <Td>
+                        <Paragraph>
+                            <B>
+                                <Value select="../totals/net" />
+                                EUR
+                            </B>
+                        </Paragraph>
+                    </Td>
                 </Tr>
                 <Tr>
-                    <Td colspan="5"><Paragraph><Value>MwSt</Value></Paragraph></Td>
-                    <Td><Paragraph><Value select="../totals/vat" /> EUR</Paragraph></Td>
+                    <Td colspan="5">
+                        <Paragraph>
+                            <Value>MwSt</Value>
+                        </Paragraph>
+                    </Td>
+                    <Td>
+                        <Paragraph>
+                            <Value select="../totals/vat" />
+                            EUR
+                        </Paragraph>
+                    </Td>
                 </Tr>
                 <TableRule />
                 <Tr>
-                    <Td colspan="5"><Paragraph><B><Value>Gesamtbetrag</Value></B></Paragraph></Td>
-                    <Td><Paragraph><B><Value select="../totals/gross" /> EUR</B></Paragraph></Td>
+                    <Td colspan="5">
+                        <Paragraph>
+                            <B>
+                                <Value>Gesamtbetrag</Value>
+                            </B>
+                        </Paragraph>
+                    </Td>
+                    <Td>
+                        <Paragraph>
+                            <B>
+                                <Value select="../totals/gross" />
+                                EUR
+                            </B>
+                        </Paragraph>
+                    </Td>
                 </Tr>
             </Table>
         </PlaceObject>
@@ -104,11 +205,15 @@
             <TextBlock>
                 <Paragraph>
                     <Value select="seller/name" />
-                    <Value> | Geschäftsführer: </Value><Value select="seller/ceo" />
-                    <Value> | HRN: </Value><Value select="seller/register" />
+                    <Value> | Geschäftsführer: </Value>
+                    <Value select="seller/ceo" />
+                    <Value> | HRN: </Value>
+                    <Value select="seller/register" />
                     <Br />
-                    <Value>Steuernummer: </Value><Value select="seller/taxid" />
-                    <Value> | USt-IdNr.: </Value><Value select="seller/vatid" />
+                    <Value>Steuernummer: </Value>
+                    <Value select="seller/taxid" />
+                    <Value> | USt-IdNr.: </Value>
+                    <Value select="seller/vatid" />
                 </Paragraph>
             </TextBlock>
         </PlaceObject>

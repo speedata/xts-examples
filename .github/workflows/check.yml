@@ -1,0 +1,44 @@
+name: Check examples
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # once a week, so a new XTS release that changes the output is noticed
+    - cron: "17 5 * * 1"
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ImageMagick and Ghostscript
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick ghostscript
+          # Ubuntu's ImageMagick policy forbids reading PDF files; xts compare
+          # rasterizes the PDFs with ImageMagick, so lift that restriction.
+          sudo sed -i 's/rights="none" pattern="PDF"/rights="read|write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
+
+      - name: Install the latest XTS release
+        run: |
+          url=$(curl -sL https://api.github.com/repos/speedata/xts/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d '"' -f 4)
+          curl -sL "$url" | tar xz
+          echo "$PWD/xts-linux-amd64" >> "$GITHUB_PATH"
+          "$PWD/xts-linux-amd64/xts" version
+
+      - name: Compare every example with its result.pdf
+        run: xts compare --reference result .
+
+      - name: Upload the comparison report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: compare-report
+          path: |
+            compare-report.html
+            **/pagediff-*.png
+            **/source-*.png
+            **/result-*.png
