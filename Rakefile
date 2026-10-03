@@ -3,7 +3,8 @@ require "pathname"
 
 # The xts binary to use. The CI installs the latest release into PATH,
 # locally XTS=../xts/bin/xts rake qa checks against a development build.
-XTS = ENV["XTS"] || "xts"
+# A path is made absolute, since xts runs in the example's directory.
+XTS = ENV["XTS"] ? File.expand_path(ENV["XTS"]) : "xts"
 ROOT = Pathname.new(__dir__).freeze
 
 # Every directory with a layout.xml is an example. An optional argument
