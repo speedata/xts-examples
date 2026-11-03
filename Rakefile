@@ -27,21 +27,41 @@ def run_xts(dir, jobname)
   sh XTS, "--suppressinfo", "--quiet", "--jobname", jobname, *data, chdir: dir.to_s
 end
 
-desc "Run every example and compare the PDF with result.pdf, by hash first, by page images on a mismatch"
+def same_as_result?(dir)
+  Digest::SHA256.file(dir.join("xts.pdf")) == Digest::SHA256.file(dir.join("result.pdf"))
+end
+
+# Any byte difference counts, also an invisible one in the metadata or
+# the structure tree. A matching xts.pdf is removed, so the xts.pdf
+# files left over are the differing ones (the CI uploads them).
+desc "Run every example and compare the PDF with result.pdf by hash"
 task :qa, [:only] do |t, args|
   failed = []
   examples(args[:only]).each do |dir|
     run_xts(dir, "xts")
-    if Digest::SHA256.file(dir.join("xts.pdf")) == Digest::SHA256.file(dir.join("result.pdf"))
+    if same_as_result?(dir)
+      rm_f dir.join("xts.pdf"), verbose: false
       puts "ok       #{rel(dir)}"
-      next
+    else
+      failed << rel(dir)
+      puts "differs  #{rel(dir)}"
     end
-    # The bytes differ, which a newer xts can cause without a visible
-    # change. xts compare renders both PDFs and compares the pages.
+  end
+  abort "#{failed.size} example(s) differ from result.pdf: #{failed.join(', ')}. rake compare shows whether the pages differ." unless failed.empty?
+end
+
+# Needs ImageMagick and Ghostscript. Tells a visible difference from one
+# only in the bytes, for examples whose hash differs.
+desc "Compare the pages of every example (or of one) whose PDF differs from result.pdf by hash"
+task :compare, [:only] do |t, args|
+  failed = []
+  examples(args[:only]).each do |dir|
+    run_xts(dir, "xts")
+    next puts("ok       #{rel(dir)}") if same_as_result?(dir)
     puts "differs  #{rel(dir)}, comparing the pages"
     failed << rel(dir) unless system(XTS, "compare", "--reference", "result", dir.to_s)
   end
-  abort "#{failed.size} example(s) differ from result.pdf: #{failed.join(', ')}. See compare-report.html and the pagediff-*.png files." unless failed.empty?
+  abort "#{failed.size} example(s) look different: #{failed.join(', ')}. See compare-report.html and the pagediff-*.png files." unless failed.empty?
 end
 
 desc "Regenerate result.pdf and firstpage.png of every example (or of one: rake regenerateqa[introduction/planets])"

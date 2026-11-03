@@ -34,12 +34,14 @@ Start here. The examples build on each other, from the first PDF to a multi-page
 
 ## Checking the examples
 
-Every example is run and compared against its `result.pdf` on each push, see the [workflow](.github/workflows/check.yml). To do the same locally you need XTS and Rake; ImageMagick and Ghostscript are only used when a PDF differs:
+Every example is run and compared against its `result.pdf` on each push, see the [workflow](.github/workflows/check.yml). To do the same locally you need XTS and Rake:
 
 ```
 rake qa
 ```
 
-Every example is run with `--suppressinfo`, which makes the PDF reproducible, and the result is compared with `result.pdf` by hash. Only when the bytes differ, which a newer XTS can cause without a visible change, `xts compare` renders both PDFs and compares the pages. A visible difference produces `pagediff-NN.png` files in the example directory and a `compare-report.html`. `rake qa[introduction/planets]` checks one example, `XTS=path/to/xts rake qa` uses another binary than the one in `PATH`.
+Every example is run with `--suppressinfo`, which makes the PDF reproducible, and the result is compared with `result.pdf` by hash. Any byte difference counts, also one you cannot see, such as in the metadata or the structure tree. A differing example keeps its `xts.pdf`, the workflow uploads these files. `rake qa[introduction/planets]` checks one example, `XTS=path/to/xts rake qa` uses another binary than the one in `PATH`.
+
+`rake compare` tells a visible difference from one only in the bytes: for each example whose hash differs, `xts compare` renders both PDFs and compares the pages, which needs ImageMagick and Ghostscript. A visible difference produces `pagediff-NN.png` files in the example directory and a `compare-report.html`.
 
 After changing an example, `rake regenerateqa[introduction/planets]` writes its new `result.pdf` and `firstpage.png`; without the argument it regenerates all of them. `rake clean` removes the files a run leaves behind.

@@ -14,15 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Install ImageMagick and Ghostscript
-        # Only used by rake qa when a PDF differs from result.pdf by hash.
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick ghostscript
-          # Ubuntu's ImageMagick policy forbids reading PDF files; xts compare
-          # rasterizes the PDFs with ImageMagick, so lift that restriction.
-          sudo sed -i 's/rights="none" pattern="PDF"/rights="read|write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
-
       - name: Install the latest XTS release
         run: |
           url=$(curl -sL https://api.github.com/repos/speedata/xts/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d '"' -f 4)
@@ -33,13 +24,10 @@ jobs:
       - name: Compare every example with its result.pdf
         run: rake qa
 
-      - name: Upload the comparison report on failure
+      - name: Upload the differing PDFs on failure
+        # rake qa keeps xts.pdf only where it differs from result.pdf.
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: compare-report
-          path: |
-            compare-report.html
-            **/pagediff-*.png
-            **/source-*.png
-            **/result-*.png
+          name: differing-pdfs
+          path: "**/xts.pdf"
